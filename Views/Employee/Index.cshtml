@@ -1,0 +1,33 @@
+@model List<Employee>
+@{
+    ViewBag.title = "Employees";
+}
+<a asp-action="Create" asp-controller="Employee">Add New</a>
+<h2>Employees List</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model) {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Address</td>
+                <td>@emp.Phone</td>
+                <td>
+                    <a asp-action="Show" asp-controller="Employee" asp-route-id="@emp.Id">Show</a>
+                |
+                    <a asp-action="Edit" asp-controller="Employee" asp-route-id="@emp.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
