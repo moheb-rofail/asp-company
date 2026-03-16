@@ -4,7 +4,7 @@
 }
 <h2>Edit Employee: @Model.Name</h2>
 
-<form asp-action="Add" asp-controller="Employee">
+<form asp-action="Update" asp-controller="Employee" asp-route-id="@Model.Id">
 
     <div>
         <label asp-for="Name"></label>
@@ -30,7 +30,7 @@
         <span asp-validation-for="DepartmentId" class="text-danger"></span>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Add" />
+    <input type="submit" class="btn btn-primary" value="Edit" />
 </form>
 
 

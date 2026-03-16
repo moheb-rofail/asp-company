@@ -141,3 +141,4 @@
 /media/moheb_rofail/MyContent/Programming/c#/MyMvcProject/obj/Debug/net8.0/MyMvcProject.pdb
 /media/moheb_rofail/MyContent/Programming/c#/MyMvcProject/obj/Debug/net8.0/MyMvcProject.genruntimeconfig.cache
 /media/moheb_rofail/MyContent/Programming/c#/MyMvcProject/obj/Debug/net8.0/ref/MyMvcProject.dll
+/media/moheb_rofail/MyContent/Programming/c#/MyMvcProject/obj/Debug/net8.0/MyMvcProject.sourcelink.json

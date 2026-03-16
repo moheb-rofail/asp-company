@@ -9,5 +9,7 @@ public class ApplicationDbContext : DbContext
         : base(options)
     {
     }
+
+    // puclic ApplicationDbContext(){}
     public DbSet<Employee> Employee { get; set; }
 }
