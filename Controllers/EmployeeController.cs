@@ -9,22 +9,22 @@ using MyMvcProject.Repositories;
 
 public class EmployeeController : Controller
 {
-    private readonly EmployeeRepository _employeeRepository;
+    private readonly IRepository<Employee> employeeRepository;
 
-    public EmployeeController(EmployeeRepository employeeRepository)
+    public EmployeeController(IRepository<Employee> _employeeRepository)
     {
-        _employeeRepository = employeeRepository;
+        employeeRepository = _employeeRepository;
     }
 
     public IActionResult Index()
     {
-        var employees = _employeeRepository.GetAll();
+        var employees = employeeRepository.GetAll();
         return View(employees);
     }
 
     public IActionResult Show(int id)
     {
-        var employee = _employeeRepository.GetById(id);
+        var employee = employeeRepository.GetById(id);
         return View("Show", employee);
     }
 
@@ -39,8 +39,8 @@ public class EmployeeController : Controller
     {
         if (ModelState.IsValid)
         {
-            _employeeRepository.Add(employee);
-            _employeeRepository.Save();
+            employeeRepository.Add(employee);
+            employeeRepository.Save();
             return RedirectToAction("Index");
         }
         return View("Create", employee);
@@ -48,7 +48,7 @@ public class EmployeeController : Controller
 
     public IActionResult Edit(int id)
     {
-        var employee = _employeeRepository.GetById(id);
+        var employee = employeeRepository.GetById(id);
 
             if (employee == null)
             {
@@ -66,10 +66,10 @@ public class EmployeeController : Controller
 
         if (ModelState.IsValid)
         {
-            bool success = _employeeRepository.Update(id, employee);
+            bool success = employeeRepository.Update(id, employee);
             if (success)
             {
-                _employeeRepository.Save();
+                employeeRepository.Save();
                 return RedirectToAction("Index");
             }
         }
@@ -78,8 +78,8 @@ public class EmployeeController : Controller
 
     public IActionResult Remove(int id)
     {
-        _employeeRepository.Remove(id);
-        _employeeRepository.Save();
+        employeeRepository.Remove(id);
+        employeeRepository.Save();
         return RedirectToAction("Index");
     }
 }

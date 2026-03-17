@@ -4,7 +4,7 @@ using MyMvcProject.Models;
 
 namespace MyMvcProject.Repositories;
 
-public class EmployeeRepository
+public class EmployeeRepository:IRepository<Employee>
 {
     private readonly ApplicationDbContext _context;
 
